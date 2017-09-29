@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const Moment = require('moment');
 const models = require('./models');
 const { Launches, Mission, Agency } = models;
 
@@ -40,6 +41,7 @@ const populateDB = (date) => {
           windowStart: launch.isostart,
           windowEnd: launch.isoend,
           launchMonth: parseMonth(launch.windowstart),
+          // needs conversion to local time
           timeCheck: launch.wsstamp,
           location: {
             name: launch.location.name,

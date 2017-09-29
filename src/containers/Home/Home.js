@@ -13,7 +13,10 @@ const Home = ({ nextLaunch }) => (
     <div className="next-launch-content">
       <div className="rocket-and-mission-content-container">
         <RocketInfo rocketData={nextLaunch.rocket} />
-        <MissionInfo missionData={nextLaunch.missions[0]} />
+        <MissionInfo
+          missionData={nextLaunch.missions[0]}
+          launchTime={nextLaunch.timeCheck}
+        />
       </div>
       <LocationInfo locationData={nextLaunch.location} />
     </div>

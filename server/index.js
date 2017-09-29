@@ -7,7 +7,8 @@ const routes = require('./routes');
 const populateDB = require('./helpers').populateDB;
 
 const app = express();
-const currentUnix = moment().unix();
+const currentUnix = moment.utc().unix();
+console.log(currentUnix);
 const currentDate = moment().format('YYYY-MM-D');
 
 // morgan for logging
@@ -48,8 +49,10 @@ db.collection('launches').count((err, count) => {
 // check timestamps less than current and discount any with value of 0 (undefined)
 db.collection('launches').findOne({ timeCheck: { $lt: currentUnix, $ne: 0 } }, (err, launches) => {
   if (launches !== null) {
-    db.collection('launches').remove({});
-    populateDB(currentDate);
+    db.collection('launches').remove({ timeCheck: { $lt: currentUnix, $ne: 0 } });
+    console.log('documents removed');
+    // console.log('db reset. Loading new data...');
+    // populateDB(currentDate);
   }
 });
 
