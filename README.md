@@ -18,7 +18,7 @@ You will need on your local machine...
 1. Cd to your desired directory and run ...
 
 ```
-git clone 
+git clone https://github.com/melliflorGunk/launch_view.git
 ```
 
 2. Before starting the app, you will need an instance of Mongo running. Open a terminal window and type:
