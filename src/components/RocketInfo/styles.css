@@ -1,0 +1,27 @@
+.rocket-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.rocket-header {
+  font-size:  1.4rem;
+  border-top: 5px solid #C0C0C0;
+  border-bottom: 5px solid #C0C0C0;
+  background: #E48831;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 1%;
+  min-height: 50px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  min-height: 60px  
+}
+
+.rocket-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  height: 100%;
+}

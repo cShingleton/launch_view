@@ -1,0 +1,45 @@
+{
+  "name": "launch_view",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.0",
+    "express": "^4.15.5",
+    "material-ui": "^0.19.2",
+    "moment": "^2.18.1",
+    "mongoose": "^4.11.13",
+    "morgan": "^1.8.2",
+    "node-fetch": "^1.7.3",
+    "prop-types": "^15.6.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-masonry-component": "^5.0.7",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.14",
+    "react-tap-event-plugin": "^2.0.1",
+    "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "server": "nodemon ./server/index.js",
+    "dev": "react-scripts start"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.1.2",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.4.0",
+    "nodemon": "^1.12.1"
+  }
+}

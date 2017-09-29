@@ -1,0 +1,43 @@
+.title-wrapper {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.page-header {
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+  border-left: 5px solid #C0C0C0;
+  border-right: 5px solid #C0C0C0;
+  padding: 0 20px;
+}
+
+.headerbuttonwrapper {
+  align-items: center;
+  display: flex;
+  margin-left: 1rem;
+  padding: 12px 0;
+  width: 100%;
+}
+
+
+.headerbar-btns {
+  line-height: 0;
+  margin-right: 1rem;
+}
+
+@media only screen and (max-width: 625px) {
+  .title-wrapper {
+    display: none;
+  }
+  .headerbar {
+    justify-content: center;
+  }
+  .headerbar > div:first-child {
+    flex: 0 !important;
+  }
+  .headerbuttonwrapper {
+    margin-left: 0;
+  }
+}

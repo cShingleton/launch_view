@@ -1,0 +1,22 @@
+.missing-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.not-found-rocket {
+  width: 40%;
+  height: 40%;
+  margin-bottom: 5%;
+}
+
+#missing-error-message {
+    color: #fff;
+    text-shadow: 1px 1px gray;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 2%;
+    text-align: center;
+}

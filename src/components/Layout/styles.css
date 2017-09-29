@@ -1,0 +1,32 @@
+.appContentWrapper {
+    display: flex;
+    min-height: 100%;
+    flex-direction:column;
+}
+
+.appContent {
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  flex:1;
+}
+
+.appFooter {
+  margin: 2rem 0 1rem;
+  text-align: center;
+}
+
+.back-moon {
+  animation: back-moon-spin infinite 120s linear;
+  height: 90%;
+  width: 90%;
+  position: fixed;
+  right: -35%;
+  bottom: -35%;
+  z-index: -1;
+}
+
+@keyframes back-moon-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

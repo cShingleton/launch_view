@@ -1,0 +1,52 @@
+.next-launch-container {
+  max-width: 1140px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  margin: 2% auto;
+  background: rgba(10, 10, 10, 0.8);
+  color: white;
+}
+
+.home-header {
+  font-size:  1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 1%;
+  width: 100%;
+  color: white;
+  border-bottom: 5px solid #C0C0C0;
+}
+
+.home-header h1 {
+  margin: 0 0 0 2.5%;
+}
+
+.next-launch-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.rocket-and-mission-content-container {
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+}
+
+
+@media only screen and (max-width: 675px) {
+  .next-launch-container {
+    margin: 4% auto;
+    width: 85%;
+  }
+  .next-launch-content {
+    flex-direction: column;
+  }
+  .rocket-and-mission-content-container {
+    flex-direction: column;
+  }
+}

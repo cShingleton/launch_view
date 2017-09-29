@@ -1,0 +1,42 @@
+.launch-month-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 1.5% 0;
+  min-height: 250px;
+}
+
+.launch-month-header {
+  width: 10%;
+  background: #E48831;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  border-right: 10px solid black;
+}
+
+.launch-month-header > h2 {
+  transform: rotate(-90deg); 
+  font-size:  2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .launch-month-container {
+    margin: 2.5% auto;
+    width: 100%;
+    flex-direction: column;
+  }
+  .launch-month-header {
+    width: 100%;
+    border-right: none;
+    border-bottom: 10px solid black;
+  }
+  .launch-month-header > h2 {
+    transform: none;
+  }
+}

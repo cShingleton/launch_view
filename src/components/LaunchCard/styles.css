@@ -1,0 +1,34 @@
+.launch-card-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.launchCardList-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+}
+
+.launch-card {
+  text-align: left;
+  text-decoration: none;
+  width: 100%;
+}
+
+.launch-card-wrapper {
+  padding: 1%;
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  .launch-card-wrapper {
+      width: 50%;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .launch-card-wrapper {
+      width: 33%;
+  }
+}
