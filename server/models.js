@@ -18,6 +18,7 @@ const LaunchSchema = new Schema({
   favourite: { type: Boolean, default: false },
   tbddate: Number,
   name: String,
+  timeCheck: Number,
   windowStart: String,
   windowEnd: String,
   launchMonth: String,

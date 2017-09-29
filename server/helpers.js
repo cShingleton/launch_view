@@ -40,6 +40,7 @@ const populateDB = (date) => {
           windowStart: launch.isostart,
           windowEnd: launch.isoend,
           launchMonth: parseMonth(launch.windowstart),
+          timeCheck: launch.wsstamp,
           location: {
             name: launch.location.name,
             pad: {

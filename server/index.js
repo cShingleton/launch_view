@@ -4,11 +4,10 @@ const logger = require('morgan');
 const moment = require('moment');
 
 const routes = require('./routes');
-const Launches = require('./models');
 const populateDB = require('./helpers').populateDB;
 
 const app = express();
-const currentISOTime = moment().toISOString();
+const currentUnix = moment().unix();
 const currentDate = moment().format('YYYY-MM-D');
 
 // morgan for logging
@@ -46,8 +45,10 @@ db.collection('launches').count((err, count) => {
   }
 });
 
-db.collection('launches').findOne({ windowStart: { $lt: currentISOTime } }, (err, launches) => {
+// check timestamps less than current and discount any with value of 0 (undefined)
+db.collection('launches').findOne({ timeCheck: { $lt: currentUnix, $ne: 0 } }, (err, launches) => {
   if (launches !== null) {
+    db.collection('launches').remove({});
     populateDB(currentDate);
   }
 });
