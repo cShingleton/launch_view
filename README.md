@@ -27,13 +27,13 @@ git clone https://github.com/melliflorGunk/launch_view.git
 mongod
 ```
 
-3. Install the required packages with
+3. Cd into the newly cloned directory and install the required packages with
 
 ```
 npm install
 ```
 
-4. Cd into the newly cloned directory and run the following command to initalise the server. Wait until the server is initalised. Please note it can take up to 30 seconds for the app to populate your Mongo database with the API Data. 
+4. After installation is complete run following command to initalise the server. Wait until the server is initalised. Please note it can take up to 30 seconds for the app to populate your Mongo database with the API Data. 
 
 ```
 npm run server
