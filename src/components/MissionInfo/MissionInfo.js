@@ -13,7 +13,7 @@ const MissionInfo = ({ missionData, launchTime }) => (
       <TextEmphasis
         text="Launch Date:"
         content={
-          "Nothing"
+          `${Moment.unix(launchTime).format('MMMM Do YYYY | h:mm A')} (Local Time)`
         }
       />
       <TextEmphasis text="Name:" content={missionData.name} />

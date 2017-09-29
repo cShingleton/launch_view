@@ -8,7 +8,6 @@ const populateDB = require('./helpers').populateDB;
 
 const app = express();
 const currentUnix = moment.utc().unix();
-console.log(currentUnix);
 const currentDate = moment().format('YYYY-MM-D');
 
 // morgan for logging
