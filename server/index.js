@@ -4,16 +4,16 @@ const logger = require('morgan');
 const moment = require('moment');
 
 const routes = require('./routes');
-const populateDB = require('./helpers').populateDB;
+const { removeOldLaunches, emptyDBCheck, mismatchDayCheck } = require('./dbValidationHelpers');
 
 const app = express();
 const currentUnix = moment.utc().unix();
 const currentDate = moment().format('YYYY-MM-D');
-
 // morgan for logging
 app.use(logger('dev'));
 app.use(jsonParser());
 
+// CORS support
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -37,23 +37,16 @@ db.on('error', err => console.error('connection error:', err));
 
 db.once('open', () => console.log('db connection successful'));
 
-db.collection('launches').count((err, count) => {
-  if (count === 0) {
-    populateDB(currentDate);
-  } else {
-    console.log(`Found Records: ${count}`);
-  }
-});
+// if db is empty, populate it
+emptyDBCheck(db, currentDate, currentUnix);
 
-// check timestamps less than current and discount any with value of 0 (undefined)
-db.collection('launches').findOne({ timeCheck: { $lt: currentUnix, $ne: 0 } }, (err, launches) => {
-  if (launches !== null) {
-    db.collection('launches').remove({ timeCheck: { $lt: currentUnix, $ne: 0 } });
-    console.log('documents removed');
-    // console.log('db reset. Loading new data...');
-    // populateDB(currentDate);
-  }
-});
+// check if first item day is less than current
+// if so, repopulate with today's data
+mismatchDayCheck(db, currentDate, currentUnix);
+
+// check timestamps for today
+// if less than current time (discount any with value of 0 (undefined)) then remove
+removeOldLaunches(db, currentUnix);
 
 app.use('/launches', routes);
 
