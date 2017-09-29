@@ -16,6 +16,7 @@ const Home = ({ nextLaunch }) => (
         <MissionInfo
           missionData={nextLaunch.missions[0]}
           launchTime={nextLaunch.timeCheck}
+          tbddate={nextLaunch.tbddate}
         />
       </div>
       <LocationInfo locationData={nextLaunch.location} />

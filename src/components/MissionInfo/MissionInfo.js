@@ -4,7 +4,7 @@ import Moment from 'moment';
 import TextEmphasis from '../TextEmphasis';
 import './styles.css';
 
-const MissionInfo = ({ missionData, launchTime }) => (
+const MissionInfo = ({ missionData, launchTime, tbddate }) => (
   <div className="mission-content">
     <div className="mission-header">
       <h1>The Mission</h1>
@@ -13,7 +13,9 @@ const MissionInfo = ({ missionData, launchTime }) => (
       <TextEmphasis
         text="Launch Date:"
         content={
-          `${Moment.unix(launchTime).format('MMMM Do YYYY | h:mm A')} (Local Time)`
+          (tbddate == 1)
+          ? 'To be determined'
+          : `${Moment.unix(launchTime).format('MMMM Do YYYY | h:mm A')} (Local Time)`
         }
       />
       <TextEmphasis text="Name:" content={missionData.name} />
