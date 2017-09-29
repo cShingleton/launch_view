@@ -39,7 +39,7 @@ npm install
 npm run server
 ```
 
-5. The server will have finished initialising once you see a series of 'success 202' outputs in your terminal window, indicating that ther server wrote to the database successfully. Finally, run the following to initalise the client.
+5. The server will have finished initialising once you see a series of 'success 202' outputs in your terminal window, indicating that ther server wrote to the database successfully. Open another terminal window, navigate to the directory and run the following to initalise the client.
 
 ```
 npm run dev
