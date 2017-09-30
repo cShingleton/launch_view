@@ -9,6 +9,7 @@ const { removeOldLaunches, emptyDBCheck, mismatchDayCheck } = require('./dbValid
 const app = express();
 const currentUnix = moment.utc().unix();
 const currentDate = moment().format('YYYY-MM-D');
+
 // morgan for logging
 app.use(logger('dev'));
 app.use(jsonParser());

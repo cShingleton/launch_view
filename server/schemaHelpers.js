@@ -1,8 +1,6 @@
 const fetch = require('node-fetch');
 const models = require('./models');
 const { Launches, Mission, Agency } = models;
-const { removeOldLaunches } = require('./dbValidationHelpers');
-
 
 const agencyMap = (agencyList) => {
   return agencyList.map((agency) => {
@@ -23,7 +21,7 @@ const parsePhoto = (photoURL) => {
   return photoURL.replace(underscoreMatch, '_320');
 };
 
-const populateDB = (date, db, currentUnix) => {
+const populateDB = (date) => {
   fetch(`https://launchlibrary.net/1.2/launch/${date}?limit=50`)
     .then(res => res.json())
     .then((data) => {
@@ -66,8 +64,6 @@ const populateDB = (date, db, currentUnix) => {
           return console.log('Success', 202);
         });
       });
-      // remove any past launches for the current day
-      removeOldLaunches(db, currentUnix);
     }).catch(err => console.error(err));
 };
 
