@@ -22,7 +22,7 @@ router.get('/', (request, response, next) => {
 });
 
 router.get('/nextLaunch', (request, response, next) => {
-  Launches.findOne({ tbddate: { $ne: 1 }, windowStart: { $gte: currentUnix } }, (err, doc) => {
+  Launches.findOne({ tbddate: { $ne: 1 }, timeCheck: { $gte: currentUnix } }, (err, doc) => {
     if (err) return next(err);
     if (!doc) {
       err = new Error('Not Found');
