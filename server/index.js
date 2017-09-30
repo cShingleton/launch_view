@@ -4,7 +4,7 @@ const logger = require('morgan');
 const moment = require('moment');
 
 const routes = require('./routes');
-const { removeOldLaunches, emptyDBCheck, mismatchDayCheck } = require('./dbValidationHelpers');
+const { emptyDBCheck, mismatchDayCheck } = require('./dbValidationHelpers');
 
 const app = express();
 const currentUnix = moment.utc().unix();
@@ -44,10 +44,6 @@ emptyDBCheck(db, currentDate, currentUnix);
 // check if first item day is less than current
 // if so, repopulate with today's data
 mismatchDayCheck(db, currentDate, currentUnix);
-
-// check timestamps for today
-// if less than current time (discount any with value of 0 (undefined)) then remove
-removeOldLaunches(db, currentUnix);
 
 app.use('/launches', routes);
 

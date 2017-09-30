@@ -1,18 +1,6 @@
 const populateDB = require('./schemaHelpers').populateDB;
 const moment = require('moment');
 
-
-// check timestamps for today
-// if less than current time (discount any with value of 0 (undefined)) then remove
-const removeOldLaunches = (db, currentUnix) => {
-  db.collection('launches').findOne({ timeCheck: { $lt: currentUnix, $ne: 0 } }, (err, launches) => {
-    if (launches !== null) {
-      db.collection('launches').remove({ timeCheck: { $lt: currentUnix, $ne: 0 } });
-      console.log('old launches removed');
-    }
-  });
-};
-
 // if db is empty, populate it
 const emptyDBCheck = (db, currentDate) => {
   db.collection('launches').count((err, count) => {
@@ -45,6 +33,5 @@ const mismatchDayCheck = (db, currentDate) => {
   });
 };
 
-module.exports.removeOldLaunches = removeOldLaunches;
 module.exports.emptyDBCheck = emptyDBCheck;
 module.exports.mismatchDayCheck = mismatchDayCheck;

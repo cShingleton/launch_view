@@ -1,5 +1,7 @@
 const fetch = require('node-fetch');
 const models = require('./models');
+const moment = require('moment');
+const currentUnix = moment.utc().unix();
 const { Launches, Mission, Agency } = models;
 
 const agencyMap = (agencyList) => {
@@ -25,7 +27,8 @@ const populateDB = (date) => {
   fetch(`https://launchlibrary.net/1.2/launch/${date}?limit=50`)
     .then(res => res.json())
     .then((data) => {
-      data.launches.map((launch) => {
+      const toDateData = data.launches.filter(launch => ((launch.netstamp === 0) || (launch.netstamp > currentUnix)));
+      toDateData.map((launch) => {
         const missionCheck = launch.missions.length;
         const mission = new Mission({
           name: (missionCheck === 0) ? 'Unknown' : launch.missions[0].name,
@@ -58,7 +61,6 @@ const populateDB = (date) => {
           },
           missions: mission,
         });
-
         return Launches.create(Launch, (err) => {
           if (err) return console.error(err);
           return console.log('Success', 202);
