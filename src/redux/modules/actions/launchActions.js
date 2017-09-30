@@ -21,14 +21,14 @@ function fetchLaunchesError(error) {
 export function fetchNextLaunch() {
   return function (dispatch) {
     fetchLaunchesBegin();
-    fetch('http://localhost:3001/launches')
+    fetch('http://localhost:3001/launches/nextLaunch')
       .then((response) => {
         if (!response.ok) {
           throw Error(response.statusText);
         }
         return response.json();
       }).then((data) => {
-        dispatch(fetchNextLaunchSuccess(data[0]));
+        dispatch(fetchNextLaunchSuccess(data));
       }).catch(err => dispatch(fetchLaunchesError(err)));
   };
 }

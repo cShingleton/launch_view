@@ -2,6 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 const models = require('./models');
+const moment = require('moment');
+const currentUnix = moment.utc().unix();
 const { Launches } = models;
 
 // GET /launches
@@ -17,6 +19,18 @@ router.get('/', (request, response, next) => {
       }
       response.json(launches);
     });
+});
+
+router.get('/nextLaunch', (request, response, next) => {
+  Launches.findOne({ tbddate: { $ne: 1 }, windowStart: { $gte: currentUnix } }, (err, doc) => {
+    if (err) return next(err);
+    if (!doc) {
+      err = new Error('Not Found');
+      err.status = 404;
+      return next(err);
+    }
+    response.json(doc);
+  });
 });
 
 // GET /launches/:id
