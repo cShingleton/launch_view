@@ -4,18 +4,24 @@ import LaunchMonth from '../../components/LaunchMonth';
 import LaunchModal from '../../components/LaunchModal';
 import './styles.css';
 
-const Upcoming = ({ upcomingLaunches, modalOpen, toggleModal }) => (
+const Upcoming = ({ upcomingLaunches, modalOpen, toggleModal, fetchModalData, modalData }) => (
   <div className="launchcard-list-wrapper">
     {upcomingLaunches.map(launch => (
-        <LaunchMonth
-          key={Object.keys(launch)}
-          header={Object.keys(launch)}
-          launch={launch[Object.keys(launch)[0]]}
-          modalOpen={modalOpen}
-          toggleModal={toggleModal}
-        />
+      <LaunchMonth
+        key={Object.keys(launch)}
+        header={Object.keys(launch)}
+        launch={launch[Object.keys(launch)[0]]}
+        modalOpen={modalOpen}
+        toggleModal={toggleModal}
+        fetchModalData={fetchModalData}
+      />
     ))}
-    <LaunchModal launchData={upcomingLaunches[0].October[0]} modalOpen={modalOpen} toggleModal={toggleModal} />
+    {(Object.keys(modalData).length === 0) ||
+      <LaunchModal
+        launchData={modalData}
+        modalOpen={modalOpen}
+        toggleModal={toggleModal}
+      />}
   </div>
 );
 

@@ -6,10 +6,16 @@ import { ListItem } from 'material-ui/List';
 import Rocket from '../../assets/images/rocket-ico.svg';
 import './styles.css';
 
-const LaunchCard = ({ launchData, modalOpen, toggleModal }) => (
+const LaunchCard = ({ launchData, modalOpen, toggleModal, fetchModalData }) => (
   <div className="launch-card-wrapper">
     <div className="launch-card">
-      <Paper zDepth={2} onClick={() => toggleModal(modalOpen)}>
+      <Paper
+        zDepth={2} 
+        onClick={() => {
+          toggleModal(modalOpen);
+          fetchModalData(launchData.launchID);
+        }}
+      >
         <ListItem
           primaryText={`${launchData.name}`}
           secondaryText={

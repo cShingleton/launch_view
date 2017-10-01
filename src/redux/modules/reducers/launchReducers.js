@@ -2,6 +2,7 @@ const initialState = {
   loading: false,
   nextLaunch: {},
   upcomingLaunches: [],
+  modalData: {},
   error: {},
 };
 
@@ -23,6 +24,12 @@ export default function LaunchReducer(state = initialState, action) {
         ...state,
         loading: false,
         upcomingLaunches: action.upcomingLaunches,
+      };
+    case 'FETCH_MODAL_DATA_SUCCESS':
+      return {
+        ...state,
+        loading: false,
+        modalData: action.modalData,
       };
     case 'FETCH_LAUNCHES_ERROR':
       return {

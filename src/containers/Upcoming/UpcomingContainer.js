@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchUpcomingLaunches } from '../../redux/modules/actions/launchActions';
+import { fetchUpcomingLaunches, fetchModalData } from '../../redux/modules/actions/launchActions';
 import Upcoming from './Upcoming';
 import Loader from '../../components/Loader';
 
@@ -18,18 +18,24 @@ class UpcomingContainer extends Component {
     this.props.dispatch(fetchUpcomingLaunches());
   }
 
+  fetchModalData = (launchID) => {
+    this.props.dispatch(fetchModalData(launchID));
+  }
+
   toggleModal = (modalState) => {
     this.setState({ modalOpen: !modalState });
   }
 
   render() {
-    const { upcomingLaunches, loading } = this.props.launches;
+    const { upcomingLaunches, loading, modalData } = this.props.launches;
     if (loading || upcomingLaunches.length === 0) return <Loader />;
     return (
     <Upcoming 
       upcomingLaunches={upcomingLaunches}
       modalOpen={this.state.modalOpen}
       toggleModal={this.toggleModal}
+      fetchModalData={this.fetchModalData}
+      modalData={modalData}
     />);
   }
 }
