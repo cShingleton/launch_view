@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 import LaunchTiles from '../LaunchTiles';
 import './styles.css';
 
-const LaunchMonth = ({ header, launch }) => (
+const LaunchMonth = ({ header, launch, modalOpen, toggleModal }) => (
   <div className="launch-month-container">
     <div className="launch-month-header">
       <h2>{header}</h2>
     </div>
-    <LaunchTiles launch={launch} />
+    <LaunchTiles
+      launch={launch}
+      modalOpen={modalOpen}
+      toggleModal={toggleModal}
+    />
   </div>
 );
 

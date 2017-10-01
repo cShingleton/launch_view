@@ -4,13 +4,15 @@ import Masonry from 'react-masonry-component';
 import LaunchCard from '../LaunchCard';
 import './styles.css';
 
-const LaunchTiles = ({ launch }) => (
+const LaunchTiles = ({ launch, modalOpen, toggleModal }) => (
   <div className="launch-month-launches">
     <Masonry>
       {launch.map(launchEvent =>
         (<LaunchCard
           launchData={launchEvent}
           key={launchEvent.launchID}
+          modalOpen={modalOpen}
+          toggleModal={toggleModal}
         />),
       )}
     </Masonry>

@@ -7,14 +7,30 @@ import Loader from '../../components/Loader';
 
 class UpcomingContainer extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalOpen: false,
+    };
+  }
+
   componentDidMount() {
     this.props.dispatch(fetchUpcomingLaunches());
   }
 
+  toggleModal = (modalState) => {
+    this.setState({ modalOpen: !modalState });
+  }
+
   render() {
     const { upcomingLaunches, loading } = this.props.launches;
-    if (loading || !upcomingLaunches) return <Loader />;
-    return (<Upcoming upcomingLaunches={upcomingLaunches} />);
+    if (loading || upcomingLaunches.length === 0) return <Loader />;
+    return (
+    <Upcoming 
+      upcomingLaunches={upcomingLaunches}
+      modalOpen={this.state.modalOpen}
+      toggleModal={this.toggleModal}
+    />);
   }
 }
 

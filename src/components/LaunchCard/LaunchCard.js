@@ -4,13 +4,12 @@ import Paper from 'material-ui/Paper';
 import Moment from 'moment';
 import { ListItem } from 'material-ui/List';
 import Rocket from '../../assets/images/rocket-ico.svg';
-import LaunchModal from '../../containers/LaunchModal';
 import './styles.css';
 
-const LaunchCard = ({ launchData, openModal }) => (
+const LaunchCard = ({ launchData, modalOpen, toggleModal }) => (
   <div className="launch-card-wrapper">
     <div className="launch-card">
-      <Paper zDepth={2} onClick={openModal}>
+      <Paper zDepth={2} onClick={() => toggleModal(modalOpen)}>
         <ListItem
           primaryText={`${launchData.name}`}
           secondaryText={
@@ -21,7 +20,6 @@ const LaunchCard = ({ launchData, openModal }) => (
           leftIcon={<img src={Rocket} alt="Blast off rocket" />}
         />
       </Paper>
-      <LaunchModal />
     </div>
   </div>
 );
