@@ -8,7 +8,7 @@ const { emptyDBCheck, mismatchDayCheck } = require('./dbValidationHelpers');
 
 const app = express();
 const currentUnix = moment.utc().unix();
-const currentDate = moment().format('YYYY-MM-D');
+const currentDate = moment().format('YYYY-MM-DD');
 
 // morgan for logging
 app.use(logger('dev'));

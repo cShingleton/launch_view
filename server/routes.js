@@ -22,7 +22,10 @@ router.get('/', (request, response, next) => {
 });
 
 router.get('/nextLaunch', (request, response, next) => {
-  Launches.findOne({ tbddate: { $ne: 1 }, timeCheck: { $gte: currentUnix } }, (err, doc) => {
+  Launches.find({ tbddate: { $ne: 1 }, timeCheck: { $gte: currentUnix } })
+  .sort({ timeCheck: 1 })
+  .limit(1)
+  .exec((err, doc) => {
     if (err) return next(err);
     if (!doc) {
       err = new Error('Not Found');

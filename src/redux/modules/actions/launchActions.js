@@ -32,7 +32,7 @@ export function fetchNextLaunch() {
         }
         return response.json();
       }).then((data) => {
-        dispatch(fetchNextLaunchSuccess(data));
+        dispatch(fetchNextLaunchSuccess(data[0]));
       }).catch(err => dispatch(fetchLaunchesError(err)));
   };
 }
