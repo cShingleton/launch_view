@@ -6,10 +6,10 @@ import { ListItem } from 'material-ui/List';
 import Rocket from '../../assets/images/rocket-ico.svg';
 import './styles.css';
 
-const LaunchCard = ({ launchData }) => (
+const LaunchCard = ({ launchData, modalOpen, toggleModal }) => (
   <div className="launch-card-wrapper">
     <div className="launch-card">
-      <Paper zDepth={2}>
+      <Paper zDepth={2} onClick={() => toggleModal(modalOpen)}>
         <ListItem
           primaryText={`${launchData.name}`}
           secondaryText={
@@ -32,6 +32,7 @@ LaunchCard.defaultProps = {
 };
 
 LaunchCard.propTypes = {
+  openModal: PropTypes.func.isRequired,
   launchData: PropTypes.shape({
     _id: PropTypes.string,
     launchID: PropTypes.number,
