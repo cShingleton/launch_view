@@ -19,7 +19,7 @@ const LaunchCard = ({ launchData, modalOpen, toggleModal, fetchModalData }) => (
         <ListItem
           primaryText={`${launchData.name}`}
           secondaryText={
-            (launchData.tbddate === 1) 
+            (launchData.tbddate === 1 || launchData.timeCheck === 0)
               ? `${launchData.launchMonth} TBD`
               : `${Moment(launchData.windowEnd).utc().format('DD MMMM')}`
             }

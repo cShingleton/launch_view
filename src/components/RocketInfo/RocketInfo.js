@@ -21,7 +21,7 @@ const RocketInfo = ({ rocketData }) => (
       />
       <TextEmphasis
         text="Find out more:"
-        content={<a href={rocketData.wikiURL} target="_blank">{rocketData.wikiURL}</a>}
+        content={<a href={rocketData.wikiURL} target="_blank">Wikipedia</a>}
       />
     </div>
   </div>

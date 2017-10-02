@@ -13,7 +13,7 @@ const MissionInfo = ({ missionData, launchTime, tbddate }) => (
       <TextEmphasis
         text="Launch Date:"
         content={
-          (tbddate == 1)
+          (tbddate === 1 || launchTime === 0)
           ? 'To be determined'
           : `${Moment.unix(launchTime).format('MMMM Do YYYY | h:mm A')} (Local Time)`
         }
@@ -33,4 +33,6 @@ MissionInfo.defaultProps = {
 
 MissionInfo.propTypes = {
   missionData: PropTypes.objectOf(PropTypes.string),
+  launchTime: PropTypes.number.isRequired,
+  tbddate: PropTypes.number.isRequired,
 };
