@@ -21,6 +21,8 @@ router.get('/', (request, response, next) => {
     });
 });
 
+// retrieve launches, sort and return one with timestamp closes to current
+// that is a confirmed launch
 router.get('/nextLaunch', (request, response, next) => {
   Launches.find({ tbddate: { $ne: 1 }, timeCheck: { $gte: currentUnix } })
   .sort({ timeCheck: 1 })
