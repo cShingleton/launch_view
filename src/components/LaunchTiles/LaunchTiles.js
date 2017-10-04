@@ -27,6 +27,9 @@ LaunchTiles.defaultProps = {
 };
 
 LaunchTiles.propTypes = {
+  fetchModalData: PropTypes.func.isRequired,
+  toggleModal: PropTypes.func.isRequired,
+  modalOpen: PropTypes.bool.isRequired,
   launch: PropTypes.arrayOf(PropTypes.shape({
     _id: PropTypes.string,
     launchID: PropTypes.number,

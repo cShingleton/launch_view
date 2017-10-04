@@ -10,7 +10,7 @@ const LaunchCard = ({ launchData, modalOpen, toggleModal, fetchModalData }) => (
   <div className="launch-card-wrapper">
     <div className="launch-card">
       <Paper
-        zDepth={2} 
+        zDepth={2}
         onClick={() => {
           toggleModal(modalOpen);
           fetchModalData(launchData.launchID);
@@ -30,7 +30,6 @@ const LaunchCard = ({ launchData, modalOpen, toggleModal, fetchModalData }) => (
   </div>
 );
 
-
 export default LaunchCard;
 
 LaunchCard.defaultProps = {
@@ -38,7 +37,9 @@ LaunchCard.defaultProps = {
 };
 
 LaunchCard.propTypes = {
-  openModal: PropTypes.func.isRequired,
+  fetchModalData: PropTypes.func.isRequired,
+  toggleModal: PropTypes.func.isRequired,
+  modalOpen: PropTypes.bool.isRequired,
   launchData: PropTypes.shape({
     _id: PropTypes.string,
     launchID: PropTypes.number,

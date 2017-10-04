@@ -20,6 +20,9 @@ const LaunchMonth = ({ header, launch, modalOpen, toggleModal, fetchModalData })
 export default LaunchMonth;
 
 LaunchMonth.propTypes = {
+  fetchModalData: PropTypes.func.isRequired,
+  toggleModal: PropTypes.func.isRequired,
+  modalOpen: PropTypes.bool.isRequired,
   header: PropTypes.arrayOf(PropTypes.string).isRequired,
   launch: PropTypes.arrayOf(PropTypes.shape({
     _id: PropTypes.string,

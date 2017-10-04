@@ -35,5 +35,30 @@ const LaunchModal = ({ launchData, modalOpen, toggleModal }) => (
 export default LaunchModal;
 
 LaunchModal.propTypes = {
-
+  toggleModal: PropTypes.func.isRequired,
+  modalOpen: PropTypes.bool.isRequired,
+  launchData: PropTypes.shape({
+    _id: PropTypes.string,
+    launchID: PropTypes.number,
+    name: PropTypes.string,
+    tbddate: PropTypes.number,
+    windowStart: PropTypes.string,
+    windowEnd: PropTypes.string,
+    launchMonth: PropTypes.string,
+    __v: PropTypes.number,
+    missions: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+    rocket: PropTypes.shape({
+      name: PropTypes.string,
+      wikiURL: PropTypes.string,
+      imageURL: PropTypes.string,
+      agencies: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+    }),
+    location: PropTypes.shape({
+      name: PropTypes.string,
+      pad: PropTypes.shape({
+        name: PropTypes.string,
+        agencies: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+      }),
+    }),
+  }).isRequired,
 };
