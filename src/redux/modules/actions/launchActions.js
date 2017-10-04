@@ -1,25 +1,14 @@
 import { monthReduction } from '../../../lib/helpers';
 
-function fetchLaunchesBegin() {
-  return { type: 'FETCH_LAUNCHES_BEGIN' };
-}
+const fetchLaunchesBegin = () => ({ type: 'FETCH_LAUNCHES_BEGIN' });
 
-function fetchNextLaunchSuccess(nextLaunch) {
-  return { type: 'FETCH_NEXT_LAUNCH_SUCCESS', nextLaunch };
-}
+const fetchNextLaunchSuccess = nextLaunch => ({ type: 'FETCH_NEXT_LAUNCH_SUCCESS', nextLaunch });
 
-function fetchUpcomingLaunchesSuccess(upcomingLaunches) {
-  return { type: 'FETCH_UPCOMING_LAUNCHES_SUCCESS', upcomingLaunches };
-}
+const fetchUpcomingLaunchesSuccess = upcomingLaunches => ({ type: 'FETCH_UPCOMING_LAUNCHES_SUCCESS', upcomingLaunches });
 
-function fetchModalDataSuccess(modalData) {
-  return { type: 'FETCH_MODAL_DATA_SUCCESS', modalData };
-}
+const fetchModalDataSuccess = modalData => ({ type: 'FETCH_MODAL_DATA_SUCCESS', modalData });
 
-function fetchLaunchesError(error) {
-  return { type: 'FETCH_LAUNCHES_ERROR', error };
-}
-
+const fetchLaunchesError = error => ({ type: 'FETCH_LAUNCHES_ERROR', error });
 
 // THUNKS
 export function fetchNextLaunch() {

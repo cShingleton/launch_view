@@ -1,4 +1,4 @@
-.paper > div:first-of-type{
+.paper > div:first-of-type {
   overflow: auto !important;
 }
 

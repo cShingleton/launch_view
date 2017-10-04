@@ -25,7 +25,6 @@ const LaunchView = () => (
       </Router>
     </Provider>
   </MuiThemeProvider>
-
 );
 
 ReactDOM.render(<LaunchView />, document.getElementById('root'));

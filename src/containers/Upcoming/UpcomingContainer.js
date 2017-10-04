@@ -18,13 +18,9 @@ class UpcomingContainer extends Component {
     this.props.dispatch(fetchUpcomingLaunches());
   }
 
-  fetchModalData = (launchID) => {
-    this.props.dispatch(fetchModalData(launchID));
-  }
+  fetchModalData = launchID => this.props.dispatch(fetchModalData(launchID));
 
-  toggleModal = (modalState) => {
-    this.setState({ modalOpen: !modalState });
-  }
+  toggleModal = modalState => this.setState({ modalOpen: !modalState });
 
   render() {
     const { upcomingLaunches, loading, modalData } = this.props.launches;

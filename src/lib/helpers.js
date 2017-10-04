@@ -12,7 +12,7 @@ export const monthReduction = (data) => {
         }
       });
     } else {
-      // else current new entry in acc array for month and push curr data in
+      // else create new entry in acc array for month and push curr data in
       acc.push({ [curr.launchMonth]: [{ ...curr }] });
     }
     return acc;

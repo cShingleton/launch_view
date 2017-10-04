@@ -24,5 +24,5 @@ export default getMuiTheme({
   raisedButton: {
     color: colors.orange,
     textColor: colors.white,
-  }
+  },
 });
